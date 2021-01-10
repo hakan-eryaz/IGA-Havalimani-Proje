@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86d2dd86ea2344bb940e8dd7c3aa8db3" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjeModel.Departman" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjeModel.Havayolları" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjeModel.IgaPersonel" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjeModel.KabinEkibi" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjeModel.Uçaklar" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjeModel.Uçuşlar" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjeModel.YerHizmetleriPersonel" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjeModel.Yolcu" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="ProjeModel.FK_IgaPersonel_Departman" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjeModel.FK_YerHizmetleriPersonel_Departman1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjeModel.FK_KabinEkibi_Havayolları" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjeModel.FK_Uçaklar_Havayolları" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjeModel.FK_YerHizmetleriPersonel_Havayolları" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjeModel.FK_KabinEkibi_Uçuşlar" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjeModel.FK_Uçuşlar_Uçaklar" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjeModel.FK_Yolcu_Uçuşlar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

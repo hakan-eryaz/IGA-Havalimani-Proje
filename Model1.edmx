@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Departman">
+          <Key>
+            <PropertyRef Name="DepartmanID" />
+          </Key>
+          <Property Name="DepartmanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Havayolları">
+          <Key>
+            <PropertyRef Name="HavayoluID" />
+          </Key>
+          <Property Name="HavayoluID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ülke" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IgaPersonel">
+          <Key>
+            <PropertyRef Name="IgaID" />
+          </Key>
+          <Property Name="IgaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DoğumTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cinsiyet" Type="varchar" MaxLength="50" />
+          <Property Name="DepartmanID" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KabinEkibi">
+          <Key>
+            <PropertyRef Name="KabinID" />
+          </Key>
+          <Property Name="KabinID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UçuşID" Type="int" Nullable="false" />
+          <Property Name="HavayoluID" Type="int" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DoğumTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cinsiyet" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uçaklar">
+          <Key>
+            <PropertyRef Name="UçakID" />
+          </Key>
+          <Property Name="UçakID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HavayoluID" Type="int" Nullable="false" />
+          <Property Name="ModelNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Üretici" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uçuşlar">
+          <Key>
+            <PropertyRef Name="UçuşID" />
+          </Key>
+          <Property Name="UçuşID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UçakID" Type="int" Nullable="false" />
+          <Property Name="KalkışTarih" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KalkışSaat" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="İnişTarih" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="İnişSaat" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KalkışKonum" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="İnişKonum" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="YerHizmetleriPersonel">
+          <Key>
+            <PropertyRef Name="YerHizID" />
+          </Key>
+          <Property Name="YerHizID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DoğumTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cinsiyet" Type="varchar" MaxLength="50" />
+          <Property Name="DepartmanID" Type="int" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HavayoluID" Type="int" />
+        </EntityType>
+        <EntityType Name="Yolcu">
+          <Key>
+            <PropertyRef Name="YolcuID" />
+          </Key>
+          <Property Name="YolcuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DoğumTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cinsiyet" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KoltukNo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="BiletStatü" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UçuşID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_IgaPersonel_Departman">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="1" />
+          <End Role="IgaPersonel" Type="Self.IgaPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="DepartmanID" />
+            </Principal>
+            <Dependent Role="IgaPersonel">
+              <PropertyRef Name="DepartmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KabinEkibi_Havayolları">
+          <End Role="Havayolları" Type="Self.Havayolları" Multiplicity="1" />
+          <End Role="KabinEkibi" Type="Self.KabinEkibi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Havayolları">
+              <PropertyRef Name="HavayoluID" />
+            </Principal>
+            <Dependent Role="KabinEkibi">
+              <PropertyRef Name="HavayoluID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KabinEkibi_Uçuşlar">
+          <End Role="Uçuşlar" Type="Self.Uçuşlar" Multiplicity="1" />
+          <End Role="KabinEkibi" Type="Self.KabinEkibi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uçuşlar">
+              <PropertyRef Name="UçuşID" />
+            </Principal>
+            <Dependent Role="KabinEkibi">
+              <PropertyRef Name="UçuşID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uçaklar_Havayolları">
+          <End Role="Havayolları" Type="Self.Havayolları" Multiplicity="1" />
+          <End Role="Uçaklar" Type="Self.Uçaklar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Havayolları">
+              <PropertyRef Name="HavayoluID" />
+            </Principal>
+            <Dependent Role="Uçaklar">
+              <PropertyRef Name="HavayoluID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uçuşlar_Uçaklar">
+          <End Role="Uçaklar" Type="Self.Uçaklar" Multiplicity="1" />
+          <End Role="Uçuşlar" Type="Self.Uçuşlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uçaklar">
+              <PropertyRef Name="UçakID" />
+            </Principal>
+            <Dependent Role="Uçuşlar">
+              <PropertyRef Name="UçakID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YerHizmetleriPersonel_Departman1">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="1" />
+          <End Role="YerHizmetleriPersonel" Type="Self.YerHizmetleriPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="DepartmanID" />
+            </Principal>
+            <Dependent Role="YerHizmetleriPersonel">
+              <PropertyRef Name="DepartmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YerHizmetleriPersonel_Havayolları">
+          <End Role="Havayolları" Type="Self.Havayolları" Multiplicity="0..1" />
+          <End Role="YerHizmetleriPersonel" Type="Self.YerHizmetleriPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Havayolları">
+              <PropertyRef Name="HavayoluID" />
+            </Principal>
+            <Dependent Role="YerHizmetleriPersonel">
+              <PropertyRef Name="HavayoluID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yolcu_Uçuşlar">
+          <End Role="Uçuşlar" Type="Self.Uçuşlar" Multiplicity="1" />
+          <End Role="Yolcu" Type="Self.Yolcu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uçuşlar">
+              <PropertyRef Name="UçuşID" />
+            </Principal>
+            <Dependent Role="Yolcu">
+              <PropertyRef Name="UçuşID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjeModelStoreContainer">
+          <EntitySet Name="Departman" EntityType="Self.Departman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Havayolları" EntityType="Self.Havayolları" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IgaPersonel" EntityType="Self.IgaPersonel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KabinEkibi" EntityType="Self.KabinEkibi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uçaklar" EntityType="Self.Uçaklar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uçuşlar" EntityType="Self.Uçuşlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YerHizmetleriPersonel" EntityType="Self.YerHizmetleriPersonel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yolcu" EntityType="Self.Yolcu" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_IgaPersonel_Departman" Association="Self.FK_IgaPersonel_Departman">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="IgaPersonel" EntitySet="IgaPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KabinEkibi_Havayolları" Association="Self.FK_KabinEkibi_Havayolları">
+            <End Role="Havayolları" EntitySet="Havayolları" />
+            <End Role="KabinEkibi" EntitySet="KabinEkibi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KabinEkibi_Uçuşlar" Association="Self.FK_KabinEkibi_Uçuşlar">
+            <End Role="Uçuşlar" EntitySet="Uçuşlar" />
+            <End Role="KabinEkibi" EntitySet="KabinEkibi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uçaklar_Havayolları" Association="Self.FK_Uçaklar_Havayolları">
+            <End Role="Havayolları" EntitySet="Havayolları" />
+            <End Role="Uçaklar" EntitySet="Uçaklar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uçuşlar_Uçaklar" Association="Self.FK_Uçuşlar_Uçaklar">
+            <End Role="Uçaklar" EntitySet="Uçaklar" />
+            <End Role="Uçuşlar" EntitySet="Uçuşlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YerHizmetleriPersonel_Departman1" Association="Self.FK_YerHizmetleriPersonel_Departman1">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="YerHizmetleriPersonel" EntitySet="YerHizmetleriPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YerHizmetleriPersonel_Havayolları" Association="Self.FK_YerHizmetleriPersonel_Havayolları">
+            <End Role="Havayolları" EntitySet="Havayolları" />
+            <End Role="YerHizmetleriPersonel" EntitySet="YerHizmetleriPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yolcu_Uçuşlar" Association="Self.FK_Yolcu_Uçuşlar">
+            <End Role="Uçuşlar" EntitySet="Uçuşlar" />
+            <End Role="Yolcu" EntitySet="Yolcu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Departman">
+          <Key>
+            <PropertyRef Name="DepartmanID" />
+          </Key>
+          <Property Name="DepartmanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="IgaPersonel" Relationship="Self.FK_IgaPersonel_Departman" FromRole="Departman" ToRole="IgaPersonel" />
+          <NavigationProperty Name="YerHizmetleriPersonel" Relationship="Self.FK_YerHizmetleriPersonel_Departman1" FromRole="Departman" ToRole="YerHizmetleriPersonel" />
+        </EntityType>
+        <EntityType Name="Havayolları">
+          <Key>
+            <PropertyRef Name="HavayoluID" />
+          </Key>
+          <Property Name="HavayoluID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ülke" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KabinEkibi" Relationship="Self.FK_KabinEkibi_Havayolları" FromRole="Havayolları" ToRole="KabinEkibi" />
+          <NavigationProperty Name="Uçaklar" Relationship="Self.FK_Uçaklar_Havayolları" FromRole="Havayolları" ToRole="Uçaklar" />
+          <NavigationProperty Name="YerHizmetleriPersonel" Relationship="Self.FK_YerHizmetleriPersonel_Havayolları" FromRole="Havayolları" ToRole="YerHizmetleriPersonel" />
+        </EntityType>
+        <EntityType Name="IgaPersonel">
+          <Key>
+            <PropertyRef Name="IgaID" />
+          </Key>
+          <Property Name="IgaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoğumTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmanID" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Departman" Relationship="Self.FK_IgaPersonel_Departman" FromRole="IgaPersonel" ToRole="Departman" />
+        </EntityType>
+        <EntityType Name="KabinEkibi">
+          <Key>
+            <PropertyRef Name="KabinID" />
+          </Key>
+          <Property Name="KabinID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UçuşID" Type="Int32" Nullable="false" />
+          <Property Name="HavayoluID" Type="Int32" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DoğumTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Havayolları" Relationship="Self.FK_KabinEkibi_Havayolları" FromRole="KabinEkibi" ToRole="Havayolları" />
+          <NavigationProperty Name="Uçuşlar" Relationship="Self.FK_KabinEkibi_Uçuşlar" FromRole="KabinEkibi" ToRole="Uçuşlar" />
+        </EntityType>
+        <EntityType Name="Uçaklar">
+          <Key>
+            <PropertyRef Name="UçakID" />
+          </Key>
+          <Property Name="UçakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HavayoluID" Type="Int32" Nullable="false" />
+          <Property Name="ModelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Üretici" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Havayolları" Relationship="Self.FK_Uçaklar_Havayolları" FromRole="Uçaklar" ToRole="Havayolları" />
+          <NavigationProperty Name="Uçuşlar" Relationship="Self.FK_Uçuşlar_Uçaklar" FromRole="Uçaklar" ToRole="Uçuşlar" />
+        </EntityType>
+        <EntityType Name="Uçuşlar">
+          <Key>
+            <PropertyRef Name="UçuşID" />
+          </Key>
+          <Property Name="UçuşID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UçakID" Type="Int32" Nullable="false" />
+          <Property Name="KalkışTarih" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KalkışSaat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="İnişTarih" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="İnişSaat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KalkışKonum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="İnişKonum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KabinEkibi" Relationship="Self.FK_KabinEkibi_Uçuşlar" FromRole="Uçuşlar" ToRole="KabinEkibi" />
+          <NavigationProperty Name="Uçaklar" Relationship="Self.FK_Uçuşlar_Uçaklar" FromRole="Uçuşlar" ToRole="Uçaklar" />
+          <NavigationProperty Name="Yolcu" Relationship="Self.FK_Yolcu_Uçuşlar" FromRole="Uçuşlar" ToRole="Yolcu" />
+        </EntityType>
+        <EntityType Name="YerHizmetleriPersonel">
+          <Key>
+            <PropertyRef Name="YerHizID" />
+          </Key>
+          <Property Name="YerHizID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoğumTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmanID" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HavayoluID" Type="Int32" />
+          <NavigationProperty Name="Departman" Relationship="Self.FK_YerHizmetleriPersonel_Departman1" FromRole="YerHizmetleriPersonel" ToRole="Departman" />
+          <NavigationProperty Name="Havayolları" Relationship="Self.FK_YerHizmetleriPersonel_Havayolları" FromRole="YerHizmetleriPersonel" ToRole="Havayolları" />
+        </EntityType>
+        <EntityType Name="Yolcu">
+          <Key>
+            <PropertyRef Name="YolcuID" />
+          </Key>
+          <Property Name="YolcuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DoğumTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KoltukNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BiletStatü" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UçuşID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Uçuşlar" Relationship="Self.FK_Yolcu_Uçuşlar" FromRole="Yolcu" ToRole="Uçuşlar" />
+        </EntityType>
+        <Association Name="FK_IgaPersonel_Departman">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="1" />
+          <End Role="IgaPersonel" Type="Self.IgaPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="DepartmanID" />
+            </Principal>
+            <Dependent Role="IgaPersonel">
+              <PropertyRef Name="DepartmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YerHizmetleriPersonel_Departman1">
+          <End Role="Departman" Type="Self.Departman" Multiplicity="1" />
+          <End Role="YerHizmetleriPersonel" Type="Self.YerHizmetleriPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departman">
+              <PropertyRef Name="DepartmanID" />
+            </Principal>
+            <Dependent Role="YerHizmetleriPersonel">
+              <PropertyRef Name="DepartmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KabinEkibi_Havayolları">
+          <End Role="Havayolları" Type="Self.Havayolları" Multiplicity="1" />
+          <End Role="KabinEkibi" Type="Self.KabinEkibi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Havayolları">
+              <PropertyRef Name="HavayoluID" />
+            </Principal>
+            <Dependent Role="KabinEkibi">
+              <PropertyRef Name="HavayoluID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uçaklar_Havayolları">
+          <End Role="Havayolları" Type="Self.Havayolları" Multiplicity="1" />
+          <End Role="Uçaklar" Type="Self.Uçaklar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Havayolları">
+              <PropertyRef Name="HavayoluID" />
+            </Principal>
+            <Dependent Role="Uçaklar">
+              <PropertyRef Name="HavayoluID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YerHizmetleriPersonel_Havayolları">
+          <End Role="Havayolları" Type="Self.Havayolları" Multiplicity="0..1" />
+          <End Role="YerHizmetleriPersonel" Type="Self.YerHizmetleriPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Havayolları">
+              <PropertyRef Name="HavayoluID" />
+            </Principal>
+            <Dependent Role="YerHizmetleriPersonel">
+              <PropertyRef Name="HavayoluID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KabinEkibi_Uçuşlar">
+          <End Role="Uçuşlar" Type="Self.Uçuşlar" Multiplicity="1" />
+          <End Role="KabinEkibi" Type="Self.KabinEkibi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uçuşlar">
+              <PropertyRef Name="UçuşID" />
+            </Principal>
+            <Dependent Role="KabinEkibi">
+              <PropertyRef Name="UçuşID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uçuşlar_Uçaklar">
+          <End Role="Uçaklar" Type="Self.Uçaklar" Multiplicity="1" />
+          <End Role="Uçuşlar" Type="Self.Uçuşlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uçaklar">
+              <PropertyRef Name="UçakID" />
+            </Principal>
+            <Dependent Role="Uçuşlar">
+              <PropertyRef Name="UçakID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yolcu_Uçuşlar">
+          <End Role="Uçuşlar" Type="Self.Uçuşlar" Multiplicity="1" />
+          <End Role="Yolcu" Type="Self.Yolcu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uçuşlar">
+              <PropertyRef Name="UçuşID" />
+            </Principal>
+            <Dependent Role="Yolcu">
+              <PropertyRef Name="UçuşID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departman" EntityType="Self.Departman" />
+          <EntitySet Name="Havayolları" EntityType="Self.Havayolları" />
+          <EntitySet Name="IgaPersonel" EntityType="Self.IgaPersonel" />
+          <EntitySet Name="KabinEkibi" EntityType="Self.KabinEkibi" />
+          <EntitySet Name="Uçaklar" EntityType="Self.Uçaklar" />
+          <EntitySet Name="Uçuşlar" EntityType="Self.Uçuşlar" />
+          <EntitySet Name="YerHizmetleriPersonel" EntityType="Self.YerHizmetleriPersonel" />
+          <EntitySet Name="Yolcu" EntityType="Self.Yolcu" />
+          <AssociationSet Name="FK_IgaPersonel_Departman" Association="Self.FK_IgaPersonel_Departman">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="IgaPersonel" EntitySet="IgaPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YerHizmetleriPersonel_Departman1" Association="Self.FK_YerHizmetleriPersonel_Departman1">
+            <End Role="Departman" EntitySet="Departman" />
+            <End Role="YerHizmetleriPersonel" EntitySet="YerHizmetleriPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KabinEkibi_Havayolları" Association="Self.FK_KabinEkibi_Havayolları">
+            <End Role="Havayolları" EntitySet="Havayolları" />
+            <End Role="KabinEkibi" EntitySet="KabinEkibi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uçaklar_Havayolları" Association="Self.FK_Uçaklar_Havayolları">
+            <End Role="Havayolları" EntitySet="Havayolları" />
+            <End Role="Uçaklar" EntitySet="Uçaklar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YerHizmetleriPersonel_Havayolları" Association="Self.FK_YerHizmetleriPersonel_Havayolları">
+            <End Role="Havayolları" EntitySet="Havayolları" />
+            <End Role="YerHizmetleriPersonel" EntitySet="YerHizmetleriPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KabinEkibi_Uçuşlar" Association="Self.FK_KabinEkibi_Uçuşlar">
+            <End Role="Uçuşlar" EntitySet="Uçuşlar" />
+            <End Role="KabinEkibi" EntitySet="KabinEkibi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uçuşlar_Uçaklar" Association="Self.FK_Uçuşlar_Uçaklar">
+            <End Role="Uçaklar" EntitySet="Uçaklar" />
+            <End Role="Uçuşlar" EntitySet="Uçuşlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yolcu_Uçuşlar" Association="Self.FK_Yolcu_Uçuşlar">
+            <End Role="Uçuşlar" EntitySet="Uçuşlar" />
+            <End Role="Yolcu" EntitySet="Yolcu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjeModelStoreContainer" CdmEntityContainer="ProjeEntities">
+          <EntitySetMapping Name="Departman">
+            <EntityTypeMapping TypeName="ProjeModel.Departman">
+              <MappingFragment StoreEntitySet="Departman">
+                <ScalarProperty Name="DepartmanID" ColumnName="DepartmanID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Havayolları">
+            <EntityTypeMapping TypeName="ProjeModel.Havayolları">
+              <MappingFragment StoreEntitySet="Havayolları">
+                <ScalarProperty Name="HavayoluID" ColumnName="HavayoluID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Ülke" ColumnName="Ülke" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IgaPersonel">
+            <EntityTypeMapping TypeName="ProjeModel.IgaPersonel">
+              <MappingFragment StoreEntitySet="IgaPersonel">
+                <ScalarProperty Name="IgaID" ColumnName="IgaID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DoğumTarihi" ColumnName="DoğumTarihi" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="DepartmanID" ColumnName="DepartmanID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KabinEkibi">
+            <EntityTypeMapping TypeName="ProjeModel.KabinEkibi">
+              <MappingFragment StoreEntitySet="KabinEkibi">
+                <ScalarProperty Name="KabinID" ColumnName="KabinID" />
+                <ScalarProperty Name="UçuşID" ColumnName="UçuşID" />
+                <ScalarProperty Name="HavayoluID" ColumnName="HavayoluID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DoğumTarihi" ColumnName="DoğumTarihi" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uçaklar">
+            <EntityTypeMapping TypeName="ProjeModel.Uçaklar">
+              <MappingFragment StoreEntitySet="Uçaklar">
+                <ScalarProperty Name="UçakID" ColumnName="UçakID" />
+                <ScalarProperty Name="HavayoluID" ColumnName="HavayoluID" />
+                <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+                <ScalarProperty Name="Üretici" ColumnName="Üretici" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uçuşlar">
+            <EntityTypeMapping TypeName="ProjeModel.Uçuşlar">
+              <MappingFragment StoreEntitySet="Uçuşlar">
+                <ScalarProperty Name="UçuşID" ColumnName="UçuşID" />
+                <ScalarProperty Name="UçakID" ColumnName="UçakID" />
+                <ScalarProperty Name="KalkışTarih" ColumnName="KalkışTarih" />
+                <ScalarProperty Name="KalkışSaat" ColumnName="KalkışSaat" />
+                <ScalarProperty Name="İnişTarih" ColumnName="İnişTarih" />
+                <ScalarProperty Name="İnişSaat" ColumnName="İnişSaat" />
+                <ScalarProperty Name="KalkışKonum" ColumnName="KalkışKonum" />
+                <ScalarProperty Name="İnişKonum" ColumnName="İnişKonum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YerHizmetleriPersonel">
+            <EntityTypeMapping TypeName="ProjeModel.YerHizmetleriPersonel">
+              <MappingFragment StoreEntitySet="YerHizmetleriPersonel">
+                <ScalarProperty Name="YerHizID" ColumnName="YerHizID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DoğumTarihi" ColumnName="DoğumTarihi" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="DepartmanID" ColumnName="DepartmanID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="HavayoluID" ColumnName="HavayoluID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yolcu">
+            <EntityTypeMapping TypeName="ProjeModel.Yolcu">
+              <MappingFragment StoreEntitySet="Yolcu">
+                <ScalarProperty Name="YolcuID" ColumnName="YolcuID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DoğumTarihi" ColumnName="DoğumTarihi" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="KoltukNo" ColumnName="KoltukNo" />
+                <ScalarProperty Name="BiletStatü" ColumnName="BiletStatü" />
+                <ScalarProperty Name="UçuşID" ColumnName="UçuşID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

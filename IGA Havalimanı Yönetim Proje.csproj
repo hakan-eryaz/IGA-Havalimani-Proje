@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{247AAE7F-FDE2-4594-B352-91A295EFA4CE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IGA_Havalimanı_Yönetim_Proje</RootNamespace>
+    <AssemblyName>IGA Havalimanı Yönetim Proje</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnaSayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaSayfa.Designer.cs">
+      <DependentUpon>AnaSayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departman.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Havayolları.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaDüzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaDüzenle.Designer.cs">
+      <DependentUpon>IgaDüzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaPersonelAra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaPersonelAra.Designer.cs">
+      <DependentUpon>IgaPersonelAra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaPersonelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaPersonelEkle.Designer.cs">
+      <DependentUpon>IgaPersonelEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaPersonelSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaPersonelSil.Designer.cs">
+      <DependentUpon>IgaPersonelSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaYönetim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Iga Klasör\IgaYönetim.Designer.cs">
+      <DependentUpon>IgaYönetim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IgaPersonel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KabinEkibi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Register.cs" />
+    <Compile Include="Model\Departman.cs" />
+    <Compile Include="Model\Havayolu.cs" />
+    <Compile Include="Model\IGAPersonel.cs" />
+    <Compile Include="Model\KabinEkibi.cs" />
+    <Compile Include="Model\Uçaklar.cs" />
+    <Compile Include="Model\Uçuş.cs" />
+    <Compile Include="Model\YerHizmetleriPersoneller.cs" />
+    <Compile Include="Model\Yolcular.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Uçaklar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşEkle.Designer.cs">
+      <DependentUpon>UçuşEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşDüzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşDüzenle.Designer.cs">
+      <DependentUpon>UçuşDüzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşAra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşAra.Designer.cs">
+      <DependentUpon>UçuşAra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uçuşlar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşSil.Designer.cs">
+      <DependentUpon>UçuşSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşYönetim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uçuş Klasör\UçuşYönetim.Designer.cs">
+      <DependentUpon>UçuşYönetim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizDüzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizDüzenle.Designer.cs">
+      <DependentUpon>YerHizDüzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizmetleriEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizmetleriEkle.Designer.cs">
+      <DependentUpon>YerHizmetleriEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizmetleriYönetim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizmetleriYönetim.Designer.cs">
+      <DependentUpon>YerHizmetleriYönetim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizSil.Designer.cs">
+      <DependentUpon>YerHizSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizAra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YerHiz Klasör\YerHizAra.Designer.cs">
+      <DependentUpon>YerHizAra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YerHizmetleriPersonel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Yolcu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Yolcu\YolcuYönetim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yolcu\YolcuYönetim.Designer.cs">
+      <DependentUpon>YolcuYönetim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yolcu\YolcuAra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yolcu\YolcuAra.Designer.cs">
+      <DependentUpon>YolcuAra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yolcu\YolcuDüzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yolcu\YolcuDüzenle.Designer.cs">
+      <DependentUpon>YolcuDüzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yolcu\YolcuEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yolcu\YolcuEkle.Designer.cs">
+      <DependentUpon>YolcuEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yolcu\YolcuSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yolcu\YolcuSil.Designer.cs">
+      <DependentUpon>YolcuSil.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AnaSayfa.resx">
+      <DependentUpon>AnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Iga Klasör\IgaDüzenle.resx">
+      <DependentUpon>IgaDüzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Iga Klasör\IgaPersonelAra.resx">
+      <DependentUpon>IgaPersonelAra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Iga Klasör\IgaPersonelEkle.resx">
+      <DependentUpon>IgaPersonelEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Iga Klasör\IgaPersonelSil.resx">
+      <DependentUpon>IgaPersonelSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Iga Klasör\IgaYönetim.resx">
+      <DependentUpon>IgaYönetim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Uçuş Klasör\UçuşEkle.resx">
+      <DependentUpon>UçuşEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uçuş Klasör\UçuşSil.resx">
+      <DependentUpon>UçuşSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uçuş Klasör\UçuşYönetim.resx">
+      <DependentUpon>UçuşYönetim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uçuş Klasör\UçuşDüzenle.resx">
+      <DependentUpon>UçuşDüzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uçuş Klasör\UçuşAra.resx">
+      <DependentUpon>UçuşAra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YerHiz Klasör\YerHizDüzenle.resx">
+      <DependentUpon>YerHizDüzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YerHiz Klasör\YerHizmetleriEkle.resx">
+      <DependentUpon>YerHizmetleriEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YerHiz Klasör\YerHizmetleriYönetim.resx">
+      <DependentUpon>YerHizmetleriYönetim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YerHiz Klasör\YerHizSil.resx">
+      <DependentUpon>YerHizSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YerHiz Klasör\YerHizAra.resx">
+      <DependentUpon>YerHizAra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yolcu\YolcuAra.resx">
+      <DependentUpon>YolcuAra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yolcu\YolcuDüzenle.resx">
+      <DependentUpon>YolcuDüzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yolcu\YolcuEkle.resx">
+      <DependentUpon>YolcuEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yolcu\YolcuSil.resx">
+      <DependentUpon>YolcuSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yolcu\YolcuYönetim.resx">
+      <DependentUpon>YolcuYönetim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="ProjeDataSet.xsc">
+      <DependentUpon>ProjeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProjeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjeDataSet.xss">
+      <DependentUpon>ProjeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 ve x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 </ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
